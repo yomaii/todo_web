@@ -30,7 +30,7 @@
     "vitest": "^0.23.0"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": "eslint --ext .vue,.js,.jsx,.cjs,.mjs --fix",
-    "**/*.{js,jsx,tsx,ts,less,md,json}": "prettier --write"
+    "**/*.{js,jsx,vue,cjs,mjs}": "eslint --ext .vue,.js,.jsx,.cjs,.mjs --fix",
+    "**/*.{js,jsx,md,json,vue,cjs,mjs}": "prettier --write"
   }
 }
