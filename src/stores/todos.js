@@ -28,11 +28,22 @@ export const useTodosStore = defineStore("tasks", () => {
   function clearFilter() {
     filter.value = null;
   }
+
+  function addTodos(todo) {
+    todos.value.push(todo);
+  }
+
+  function deleteTodo(id) {
+    todos.value = todos.value.filter((todo) => todo.id != id);
+  }
+
   return {
     todos,
     filterTodos,
     filter,
     setTodos,
+    addTodos,
+    deleteTodo,
     changeTodoStatus,
     clearFilter,
   };
