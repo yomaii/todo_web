@@ -1,6 +1,6 @@
 <script setup>
 import { useTodosStore } from "./stores/todos";
-import TheContext from "./components/TheContext.vue";
+//import TheContext from "./components/TheContext.vue";
 const todos = useTodosStore();
 
 // let testTask = ['写报告', '吃晚饭', '写论文', '投递简历'];
@@ -15,7 +15,8 @@ todos.setTodos(data);
 </script>
 
 <template>
-  <TheContext></TheContext>
+  <router-view />
+  <!-- <TheContext></TheContext> -->
 </template>
 
 <style scoped>

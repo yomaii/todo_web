@@ -31,6 +31,7 @@ export const useTodosStore = defineStore("tasks", () => {
 
   function addTodos(todo) {
     todos.value.push(todo);
+    console.log(todo, todos.value);
   }
 
   function deleteTodo(id) {
