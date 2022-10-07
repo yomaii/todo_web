@@ -85,7 +85,6 @@ function submitForm(form) {
   console.log("123", formLabelAlign.password);
   form.validate((valid) => {
     if (valid) {
-      console.log(789);
       localStorage.isLogin = true;
       router.push({ name: "test" });
     }
