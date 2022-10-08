@@ -3,7 +3,6 @@ import { onMounted, onUpdated } from "vue";
 import { Folder, AlarmClock } from "@element-plus/icons-vue";
 const props = defineProps(["todo", "alarmText"]);
 function isShow() {
-  console.log("jingwen");
   const s = document.getElementById("props");
   if (s) {
     document.getElementById("task-detailw").style.display = "block";
@@ -13,15 +12,11 @@ function isShow() {
 }
 onMounted(() => {
   isShow();
-  console.log(1);
 });
 onUpdated(() => {
   isShow();
-  console.log(props);
-  console.log(2);
 });
 </script>
-
 <template>
   <div class="task-detail" id="task-detailw">
     <div class="title">
