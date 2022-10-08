@@ -26,7 +26,7 @@ const props = defineProps(["todo", "alarmText", "handleDetailClick"]);
         </div>
         <div class="alarm" v-if="props.todo.date">
           <el-icon><AlarmClock /></el-icon>
-          <span>{{ props.alarmText }}</span>
+          <span style="margin-left: 5px">{{ props.alarmText }}</span>
         </div>
       </div>
     </div>

@@ -20,7 +20,7 @@ const handleDetailClick = (t, a) => {
         :handleDetailClick="handleDetailClick"
       ></List>
     </div>
-    <div class="right">
+    <div class="right" id="rightwen">
       <Detail :todo="todo" :alarm-text="alarmText"></Detail>
     </div>
   </div>
@@ -28,17 +28,18 @@ const handleDetailClick = (t, a) => {
 
 <style>
 .context {
+  margin-top: 80px;
+  width: 100%;
   height: 100%;
   color: black;
+  display: flex;
 }
 .left {
-  float: left;
   width: 500px;
   height: 100%;
 }
 .right {
-  margin-left: 500px;
   width: 300px;
-  height: 100%;
+  margin-left: 30px;
 }
 </style>

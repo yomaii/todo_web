@@ -12,7 +12,7 @@
             <House />
           </el-icon>
         </el-button>
-        <el-input placeholder="Search"> </el-input>
+        <el-input placeholder="Search" v-model="searchdata"> </el-input>
       </div>
       <div class="right">
         <el-button :link="true" @click="add">
@@ -67,8 +67,6 @@ import { ref } from "vue";
 import emitter from "../untils/eventBus";
 import { useRouter } from "vue-router";
 import addTask from "./addTask/addTask.vue";
-let account = 123456;
-let nickname = "Happy";
 //let isShowLeft = true;
 //let isShowUser = true;
 const $router = useRouter();

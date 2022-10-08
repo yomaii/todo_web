@@ -53,13 +53,17 @@ const getTodosByDate = (d) => {
   width: 80%;
   float: right;
   margin-right: 50px;
-}
-.is-selected {
-  color: #1989fa;
+  color: brown;
 }
 p {
   margin: 0;
   padding: 0;
+}
+.is-selected {
+  color: black;
+}
+.is-today {
+  color: cadetblue;
 }
 #tasklist {
   font-size: 8px;

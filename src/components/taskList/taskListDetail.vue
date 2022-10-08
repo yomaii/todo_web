@@ -1,18 +1,37 @@
 <script setup>
+import { onMounted, onUpdated } from "vue";
 import { Folder, AlarmClock } from "@element-plus/icons-vue";
 const props = defineProps(["todo", "alarmText"]);
+function isShow() {
+  console.log("jingwen");
+  const s = document.getElementById("props");
+  if (s) {
+    document.getElementById("task-detailw").style.display = "block";
+  } else {
+    document.getElementById("task-detailw").style.display = "none";
+  }
+}
+onMounted(() => {
+  isShow();
+  console.log(1);
+});
+onUpdated(() => {
+  isShow();
+  console.log(props);
+  console.log(2);
+});
 </script>
 
 <template>
-  <div class="task-detail">
+  <div class="task-detail" id="task-detailw">
     <div class="title">
       <h5>{{ props.todo.title }}</h5>
     </div>
-    <div class="props" v-if="todo">
+    <div class="props" v-if="todo" id="props">
       <el-icon><Folder /></el-icon>
-      <span>{{ props.todo.type }}</span>
+      <span style="margin-left: 5px">{{ props.todo.type }}</span>
       <el-icon><AlarmClock /></el-icon>
-      <span>{{ props.alarmText }}</span>
+      <span style="margin-left: 5px">{{ props.alarmText }}</span>
     </div>
     <div class="detail">
       <p>{{ props.todo.describe }}</p>
@@ -22,9 +41,12 @@ const props = defineProps(["todo", "alarmText"]);
 
 <style>
 .task-detail {
-  margin-top: 50px;
-  margin-left: 30px;
+  padding: 10px;
+  padding-left: 30px;
   width: 300px;
+  border: 3px solid salmon;
+  border-radius: 10px;
+  transform: all 3s linear 0.5s;
 }
 .title h5 {
   font-weight: 700;
