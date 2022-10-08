@@ -1,3 +1,26 @@
+<script setup>
+import { onMounted, computed } from "vue";
+import emitter from "../untils/eventBus";
+import { useTodosStore } from "../stores/todos";
+
+const todos = useTodosStore();
+const types = computed(() => todos.getAllTypes());
+
+onMounted(() => {
+  emitter.on("hidelist", () => {
+    console.log("456");
+  });
+});
+/*
+function hidelist(){
+        console.log('456')
+    }
+    return {
+        hidelist
+    }
+}
+*/
+</script>
 <template>
   <div class="left1" id="left1">
     <router-link to="/todaytask">
@@ -8,7 +31,7 @@
       </div>
       <span>今日任务</span>
     </router-link>
-    <router-link to="/daiban">
+    <router-link to="/recent">
       <div style="height: 20px; width: 20px; margin-right: 20px">
         <el-icon :size="20">
           <Edit />
@@ -24,42 +47,27 @@
       </div>
       <span>日程概览</span>
     </router-link>
-    <!--         <div class="list3" @click="goCalender">
-           
-        </div> -->
-    <router-link to="/nextplan">
+    <router-link to="/future">
       <el-icon :size="20" style="margin-right: 20px">
         <Guide />
       </el-icon>
       <span>未来计划</span>
     </router-link>
-    <router-link to="/fenlei">
+    <router-link to="">
       <el-icon :size="20" style="margin-right: 20px">
         <List />
       </el-icon>
       <span>任务分类</span>
     </router-link>
+    <router-link
+      v-for="type in types"
+      :to="{ path: `/type/${type}` }"
+      :key="types.indexOf(type)"
+    >
+      <span>{{ type }}</span>
+    </router-link>
   </div>
 </template>
-<script>
-import { onMounted } from "vue";
-import emitter from "../untils/eventBus";
-export default {
-  setup() {
-    onMounted(() => {
-      emitter.on("hidelist", () => {
-        console.log("456");
-      });
-    });
-    /*      function hidelist(){
-            console.log('456')
-        }
-        return {
-            hidelist
-        } */
-  },
-};
-</script>
 
 <style>
 .left1 {

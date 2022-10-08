@@ -43,13 +43,12 @@
         <el-form-item>
           <el-time-picker v-model="data.time" placeholder="提醒时间" />
         </el-form-item>
-        <el-form-item label="预计耗费时长">
-          <el-input-number
-            v-model="data.costTime"
-            :min="0.1"
-            :max="24"
-            @change="handleChange"
-          />
+        <el-form-item>
+          <el-input
+            class="rule-input"
+            v-model="data.type"
+            placeholder="分类"
+          ></el-input>
         </el-form-item>
       </el-form>
     </div>

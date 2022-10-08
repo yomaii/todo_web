@@ -7,9 +7,6 @@ const props = defineProps(["filter", "title", "handleDetailClick"]);
 const filteredTodos = computed(() =>
   props.filter(todos.filterTodos()).sort((a, b) => a.date - b.date)
 );
-function setFilterForUnfinished() {
-  todos.filter = (todos) => todos.filter((todo) => !todo.finished);
-}
 function processAlarmText(date) {
   let dateText = new Date(date * 1000).toLocaleDateString();
   let today = new Date().toLocaleDateString();
@@ -32,7 +29,9 @@ function processAlarmText(date) {
         <el-button v-if="todos.filter" @click="todos.clearFilter"
           >显示全部</el-button
         >
-        <el-button v-else @click="setFilterForUnfinished">显示未完成</el-button>
+        <el-button v-else @click="todos.setFilterForUnfinished"
+          >显示未完成</el-button
+        >
       </el-row>
     </div>
 

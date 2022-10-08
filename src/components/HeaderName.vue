@@ -15,7 +15,7 @@
         <el-input placeholder="Search"> </el-input>
       </div>
       <div class="right">
-        <el-button :link="true">
+        <el-button :link="true" @click="add">
           <el-icon :size="30" style="margin: 0 10px">
             <Plus />
           </el-icon>
@@ -34,7 +34,7 @@
           <UserFilled />
         </el-icon>
         <span style="margin-left: 5px">
-          {{ this.account }}
+          {{ account }}
         </span>
       </div>
       <div>
@@ -42,11 +42,11 @@
           <Coordinate />
         </el-icon>
         <span style="margin-left: 6px">
-          {{ this.nickname }}
+          {{ nickname }}
         </span>
       </div>
       <div class="unlogin">
-        <el-button :link="true">
+        <el-button :link="true" @click="logout">
           <el-icon>
             <Close />
           </el-icon>
@@ -54,45 +54,49 @@
         </el-button>
       </div>
     </div>
+    <addTask
+      v-if="show"
+      :dialogVisible="show"
+      @clickChild="clickEven"
+    ></addTask>
   </div>
 </template>
-<script>
-/* import { ref } from 'vue'
-import { Search } from '@element-plus/icons-vue' */
+<script setup>
+import { ref } from "vue";
+//import { Search } from '@element-plus/icons-vue'
 import emitter from "../untils/eventBus";
 import { useRouter } from "vue-router";
-export default {
-  setup() {
-    let account = 123456;
-    let nickname = "Happy";
-    let isShowLeft = true;
-    let isShowUser = true;
-    const $router = useRouter();
-    function goHome() {
-      $router.push("home");
-    }
-    return {
-      goHome,
-      account,
-      nickname,
-      isShowLeft,
-      isShowUser,
-    };
-  },
-  methods: {
-    hideLeft() {
-      emitter.emit("hidelist");
-    },
-    showUser() {
-      const con = document.getElementById("con");
-      if (con.style.display === "none") {
-        con.style.display = "block";
-      } else {
-        con.style.display = "none";
-      }
-    },
-  },
-};
+import addTask from "./addTask/addTask.vue";
+let account = 123456;
+let nickname = "Happy";
+//let isShowLeft = true;
+//let isShowUser = true;
+const $router = useRouter();
+let show = ref(false);
+function add() {
+  show.value = true;
+}
+function clickEven() {
+  show.value = false;
+}
+function goHome() {
+  $router.push("home");
+}
+function hideLeft() {
+  emitter.emit("hidelist");
+}
+function logout() {
+  localStorage.removeItem("isLogin");
+  $router.push({ name: "LoginView" });
+}
+function showUser() {
+  const con = document.getElementById("con");
+  if (con.style.display === "none") {
+    con.style.display = "block";
+  } else {
+    con.style.display = "none";
+  }
+}
 </script>
 <style scoped>
 .con {

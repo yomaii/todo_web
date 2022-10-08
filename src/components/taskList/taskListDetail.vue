@@ -8,7 +8,7 @@ const props = defineProps(["todo", "alarmText"]);
     <div class="title">
       <h5>{{ props.todo.title }}</h5>
     </div>
-    <div class="props">
+    <div class="props" v-if="todo">
       <el-icon><Folder /></el-icon>
       <span>{{ props.todo.type }}</span>
       <el-icon><AlarmClock /></el-icon>

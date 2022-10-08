@@ -86,7 +86,7 @@ function submitForm(form) {
   form.validate((valid) => {
     if (valid) {
       localStorage.isLogin = true;
-      router.push({ name: "test" });
+      router.push({ name: "todaytask" });
     }
   });
 }

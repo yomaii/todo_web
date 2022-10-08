@@ -1,25 +1,45 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 import CalenderView from "../views/CalendarView.vue";
+import TodaytaskView from "../views/TodaytaskView.vue";
+import RecentView from "../views/RecentView.vue";
+import FutureView from "../views/FutureView.vue";
+import TypeView from "../views/TypeView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: "/home",
-      name: "home",
-      component: HomeView,
-      /*       children:[
-        {path:'/calender', component: CalenderView},
-      ] */
-    },
     {
       path: "/",
       redirect: "/home",
     },
     {
+      path: "/home",
+      redirect: "/todaytask",
+    },
+    {
       path: "/calender",
       name: "calender",
       component: CalenderView,
+    },
+    {
+      path: "/todaytask",
+      name: "todaytask",
+      component: TodaytaskView,
+    },
+    {
+      path: "/recent",
+      name: "recent",
+      component: RecentView,
+    },
+    {
+      path: "/future",
+      name: "future",
+      component: FutureView,
+    },
+    {
+      path: "/type/:type",
+      name: "type",
+      component: TypeView,
+      props: true,
     },
     {
       path: "/login",
@@ -37,29 +57,17 @@ const router = createRouter({
           /* webpackChunkName: "RegisterView" */ "../views/register/registerView.vue"
         ),
     },
-    {
-      path: "/123",
-      name: "test",
-      component: () =>
-        import(/* webpackChunkName: "teSt" */ "../views/123/teSt.vue"),
-    },
-    {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import("../views/AboutView.vue"),
-    },
   ],
 });
 
 router.beforeEach((to, from, next) => {
   const isLogin = localStorage.isLogin;
   console.log("isLogin", isLogin);
+  console.log(to.name);
   if (isLogin || to.name === "LoginView" || to.name === "RegisterView") {
     next();
   } else {
+    console.log("aaaa");
     next({ name: "LoginView" });
   }
 });
