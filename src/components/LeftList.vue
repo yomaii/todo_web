@@ -53,6 +53,12 @@ function hidelist(){
       </el-icon>
       <span>未来计划</span>
     </router-link>
+    <router-link to="/all">
+      <el-icon :size="20" style="margin-right: 20px">
+        <Tickets />
+      </el-icon>
+      <span>所有待办</span>
+    </router-link>
     <router-link to="">
       <el-icon :size="20" style="margin-right: 20px">
         <List />
