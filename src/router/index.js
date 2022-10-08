@@ -4,6 +4,7 @@ import TodaytaskView from "../views/TodaytaskView.vue";
 import RecentView from "../views/RecentView.vue";
 import FutureView from "../views/FutureView.vue";
 import TypeView from "../views/TypeView.vue";
+import AllView from "../views/AllView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -34,6 +35,11 @@ const router = createRouter({
       path: "/future",
       name: "future",
       component: FutureView,
+    },
+    {
+      path: "/all",
+      name: "all",
+      component: AllView,
     },
     {
       path: "/type/:type",
