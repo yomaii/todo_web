@@ -74,7 +74,9 @@ let nickname = "Happy";
 const $router = useRouter();
 let show = ref(false);
 function add() {
-  show.value = true;
+  if (localStorage.getItem("isLogin")) {
+    show.value = true;
+  }
 }
 function clickEven() {
   show.value = false;
