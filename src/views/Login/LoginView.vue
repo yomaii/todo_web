@@ -1,54 +1,52 @@
 <template>
-  <div class="container">
-    <div class="content">
-      <div class="login">
-        <el-tabs
-          v-model="activeName"
-          type="border-card"
-          class="demo-tabs"
-          @tab-click="handleClick"
-          stretch="true"
-        >
-          <el-tab-pane label="账号密码登录" name="passWord">
-            <el-form
-              class="form"
-              label-position="top"
-              label-width="100px"
-              ref="ruleFormRef"
-              :rules="rules"
-              :model="formLabelAlign"
-              style="max-width: 460px"
-              hide-required-asterisk="true"
-            >
-              <el-form-item label="邮箱" prop="email">
-                <el-input
-                  v-model="formLabelAlign.email"
-                  placeholder="请输入邮箱"
-                />
-              </el-form-item>
-              <el-form-item label="密码" prop="password">
-                <el-input
-                  type="password"
-                  show-password
-                  v-model="formLabelAlign.password"
-                  placeholder="请输入密码"
-                />
-              </el-form-item>
-              <div class="buttonBox">
-                <el-button type="primary" @click="submitForm(ruleFormRef)"
-                  >登录</el-button
-                >
-                <el-button @click="toRegister">注册</el-button>
-              </div>
-            </el-form>
-          </el-tab-pane>
-          <el-tab-pane label="微信扫码登录" name="weChat">
-            <div class="image">
-              <img class="img" src="../../assets/QR.png" alt="" />
+  <div class="content">
+    <div class="login">
+      <el-tabs
+        v-model="activeName"
+        type="border-card"
+        class="demo-tabs"
+        @tab-click="handleClick"
+        stretch="true"
+      >
+        <el-tab-pane label="账号密码登录" name="passWord">
+          <el-form
+            class="form"
+            label-position="top"
+            label-width="100px"
+            ref="ruleFormRef"
+            :rules="rules"
+            :model="formLabelAlign"
+            style="max-width: 460px"
+            hide-required-asterisk="true"
+          >
+            <el-form-item label="邮箱" prop="email">
+              <el-input
+                v-model="formLabelAlign.email"
+                placeholder="请输入邮箱"
+              />
+            </el-form-item>
+            <el-form-item label="密码" prop="password">
+              <el-input
+                type="password"
+                show-password
+                v-model="formLabelAlign.password"
+                placeholder="请输入密码"
+              />
+            </el-form-item>
+            <div class="buttonBox">
+              <el-button type="primary" @click="submitForm(ruleFormRef)"
+                >登录</el-button
+              >
+              <el-button @click="toRegister">注册</el-button>
             </div>
-          </el-tab-pane>
-        </el-tabs>
-      </div>
+          </el-form>
+        </el-tab-pane>
+        <el-tab-pane label="微信扫码登录" name="weChat">
+          <div class="image">
+            <img class="img" src="../../assets/QR.png" alt="" />
+          </div>
+        </el-tab-pane>
+      </el-tabs>
     </div>
   </div>
 </template>
@@ -98,9 +96,8 @@ function toRegister() {
 <style scoped>
 .content {
   position: relative;
-  /* width: 100vw;
+  width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(to right, #fbc2eb, #a6c1ee); */
 }
 .form {
   height: 200px;
