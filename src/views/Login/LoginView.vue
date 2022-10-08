@@ -98,6 +98,7 @@ function toRegister() {
   position: relative;
   width: 100vw;
   height: 100vh;
+  background: white;
 }
 .form {
   height: 200px;
