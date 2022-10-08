@@ -92,11 +92,9 @@ function toLogin() {
 
 <style scoped>
 .content {
-  display: flex;
-  padding: 0;
-  /* height: 100vh;
+  position: relative;
+  height: 100vh;
   width: 100vw;
-  background-image: linear-gradient(to right, #fbc2eb, #a6c1ee); */
 }
 .form {
   flex: 2;
@@ -108,6 +106,7 @@ function toLogin() {
   justify-content: center;
 }
 .info {
+  color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
