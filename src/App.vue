@@ -35,6 +35,12 @@ const data = JSON.parse(json);
 todos.setTodos(data);
 </script>
 
+
+<template>
+  <router-view />
+  <!-- <TheContext></TheContext> -->
+</template>
+
 <style scoped>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
