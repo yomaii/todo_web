@@ -3,19 +3,18 @@ import TheContext from "../components/TheContext.vue";
 import date from "date-and-time";
 const recent = (todos) =>
   todos.filter((todo) => {
-    const now = new Date();
+    const today = new Date(date.format(new Date(), "YYYY/MM/DD"));
     const todoDate = new Date(todo.date * 1000);
-    for (let i = 0; i < 7; i++) {
-      if (date.isSameDay(date.addDays(now, i), todoDate)) {
-        return true;
-      }
+    const sub = date.subtract(todoDate, today).toDays();
+    if (sub >= 0 && sub < 7) {
+      return true;
     }
     return false;
   });
 </script>
 <template>
   <div class="right1">
-    <TheContext :filter="recent" :title="`最近`"></TheContext>
+    <TheContext :filter="recent" :title="`最近待办`"></TheContext>
   </div>
 </template>
 

@@ -2,20 +2,18 @@
 import { computed } from "vue";
 import { useTodosStore } from "../../stores/todos";
 import Item from "./taskListItem.vue";
+import date from "date-and-time";
 const todos = useTodosStore();
 const props = defineProps(["filter", "title", "handleDetailClick"]);
 const filteredTodos = computed(() =>
   props.filter(todos.filterTodos()).sort((a, b) => a.date - b.date)
 );
-function processAlarmText(date) {
-  let dateText = new Date(date * 1000).toLocaleDateString();
-  let today = new Date().toLocaleDateString();
-  let tomorrow = new Date(
-    new Date().getTime() + 1000 * 60 * 60 * 24
-  ).toLocaleDateString();
-  if (dateText == today) return "今天";
-  if (dateText == tomorrow) return "明天";
-  return dateText;
+function processAlarmText(d) {
+  const todoDate = new Date(d * 1000);
+  const today = new Date(date.format(new Date(), "YYYY/MM/DD"));
+  if (date.isSameDay(today, todoDate)) return "今天";
+  if (date.isSameDay(date.addDays(today, 1), todoDate)) return "明天";
+  return date.format(todoDate, "YYYY-MM-DD");
 }
 </script>
 

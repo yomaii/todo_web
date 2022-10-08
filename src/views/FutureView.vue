@@ -16,7 +16,7 @@ const future = (todos) =>
 
 <template>
   <div class="right1">
-    <TheContext :filter="future" :title="`未来`"></TheContext>
+    <TheContext :filter="future" :title="`未来计划`"></TheContext>
   </div>
 </template>
 
