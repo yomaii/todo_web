@@ -1,41 +1,36 @@
-# todo
+# 项目介绍
 
-This template should help get you started developing with Vue 3 in Vite.
+todo 待办清单是一个管理待办事项的小工具。可以快速添加待办事项，管理日程。本项目为 web 端。
 
-## Recommended IDE Setup
+# 环境准备
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+安装:
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
+```
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+运行:
 
-```sh
+```
 npm run dev
 ```
 
-### Compile and Minify for Production
+打包:
 
-```sh
+```
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+# 项目测试覆盖
 
-```sh
+运行测试:
+
+```
 npm run test:unit
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+# 编码规范
 
-```sh
-npm run lint
-```
+使用 lint 和 prepare 来确保项目代码质量。
+使用 husky 在提交代码前自动对代码进行质量检查。
