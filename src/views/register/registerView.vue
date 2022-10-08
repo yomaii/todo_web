@@ -95,6 +95,7 @@ function toLogin() {
   position: relative;
   height: 100vh;
   width: 100vw;
+  background: white;
 }
 .form {
   flex: 2;

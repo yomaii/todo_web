@@ -89,6 +89,7 @@ function hideLeft() {
 }
 function logout() {
   localStorage.removeItem("isLogin");
+  showUser();
   $router.push({ name: "LoginView" });
 }
 function showUser() {
